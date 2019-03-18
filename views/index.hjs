@@ -1,8 +1,15 @@
 <html>
-    <head>
 
-    </head>
-    <body>{{!-- data for name comes from routes --}}
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    {{!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> --}}
+    {{!-- https://www.bootstrapcdn.com/ --}}
+</head>
+
+<body>{{!-- data for name comes from routes --}}
+    <div class="container">
         <h1> This is the {{name}} template in Views on {{date}}</h1>
-    </body>
+    </div>
+</body>
+
 </html>
