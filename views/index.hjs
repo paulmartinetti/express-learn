@@ -1,0 +1,8 @@
+<html>
+    <head>
+
+    </head>
+    <body>{{!-- data for name comes from routes --}}
+        <h1> This is the {{name}} template in Views on {{date}}</h1>
+    </body>
+</html>
