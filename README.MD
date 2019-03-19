@@ -18,7 +18,13 @@ express project (command to launch)
 
 // 1. moved all routes code to routes/index.js
 
-// 2 . installing hogan templating (jade was already here from express-generator)
+// 2. installing hogan templating (jade was already here from express-generator)
 npm install hjs --save
 
-// 3 
+// 3. parse arrays in hjs
+
+// 4. forms and comments via POST
+
+// 5. parse data for display
+ npm i body-parser --save
+ 

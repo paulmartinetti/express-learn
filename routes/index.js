@@ -1,16 +1,35 @@
 var express = require('express');
 var router = express.Router();
 
+const profilesA = [
+    { name: "Steve", city: "Brooklyn", profession: 'doctor' },
+    { name: "Alex", city: "New York" },
+    { name: "Allan", city: "Philly", profession: 'mason' }
+]
+
 // two params: route (home is '/'),
 router.get('/', (req, res, next) => {
     // req is request from browser
     
     // res is how the server will respond
     //res.send('This is the home route response')
-    const data = {name: 'homey', date: 'yesterday'}
+    const data = {
+        name: 'homey', 
+        date: 'yesterday',
+        profiles: profilesA
+    }
     
     // data is injected into the rendering engine hjs /views
     res.render('index', data)
+})
+
+// form is in index.hjs
+router.post('/join', (req, res, next) => {
+
+    const body = req.body
+    profilesA.push(body)
+
+    res.redirect('/')
 })
 
 router.get('/json', (req, res, next) => {

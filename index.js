@@ -2,8 +2,15 @@ const express = require('express')
 const routes = require('./routes/index')
 // path is native to npm
 const path = require('path')
+const bodyParser = require('body-parser')
 
 const app = express()
+// public assets
+// specifying the public assets here, 
+// so no need to use word public in our index.hjs
+app.use(express.static(path.join(__dirname, 'public')))
+// extract form data from a POST request
+app.use(bodyParser.urlencoded({extended:false}))
 
 // routes
 app.use('/', routes)
@@ -12,10 +19,6 @@ app.use('/', routes)
 app.set('views', path.join(__dirname, 'views'))
 // use hogan html template engine
 app.set('view engine', 'hjs')
-
-// public assets
-// specifying the public assets here, so no need to use word public
-app.use(express.static(path.join(__dirname, 'public')))
 
 // production port is usually 80
 app.listen(5000)

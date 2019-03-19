@@ -9,6 +9,35 @@
 <body>{{!-- data for name comes from routes --}}
     <div class="container">
         <h1> This is the {{name}} template in Views on {{date}}</h1>
+        <p>This is a paragraph with bootstap css</p>
+
+       
+        <ol>{{!-- this syntax is a for-loop in hjs --}}
+            {{#profiles}}
+            <li>{{name}}, {{city}}
+                {{!-- if profession key is found in json --}}
+                {{#profession}}
+                 , profession:{{profession}}
+                {{/profession}}
+            </li>
+            {{/profiles}}
+        </ol>
+        {{!-- get, post, put, delete; The /join route... --}}
+        <form method="POST" action="/join">
+            {{!-- name attribute becomes value of input text --}}
+            <input type="text" name="name" placeholder="Name"><br />
+            <input type="text" name="city" placeholder="City"><br />
+            <input type="text" name="profession" placeholder="Profession"><br />
+            <input type="submit" value="Add Profile">
+        </form>
+
+        <ol>
+            <li>Mike</li>
+            <li>Cindy</li>
+            <li>Joe</li>
+        </ol>
+        <img src="/images/flower.jpg">
+
     </div>
 </body>
 
