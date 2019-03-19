@@ -28,3 +28,9 @@ npm install hjs --save
 // 5. parse data for display
  npm i body-parser --save
  
+// 6. middleware - 19mar19
+added a timestamp var to req, read it everywhere thanks to next()
+
+// 7. login tool, passes success login to home page conditional renderer
+
+// 8. handle failed login

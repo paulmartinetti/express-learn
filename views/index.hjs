@@ -10,6 +10,10 @@
     <div class="container">
         <h1> This is the {{name}} template in Views on {{date}}</h1>
         <p>This is a paragraph with bootstap css</p>
+        <p>{{#user}}
+            My name is {{user.username}}
+            {{/user}}
+        </p>
 
        
         <ol>{{!-- this syntax is a for-loop in hjs --}}

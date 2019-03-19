@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    {{!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> --}}
+    {{!-- https://www.bootstrapcdn.com/ --}}
+</head>
+
+<body>{{!-- data for name comes from routes --}}
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST" action="/login">
+            <input type="text" name="username" placeholder="Username"/><br />
+            <input type="password" name="password" placeholder="Password" /><br />
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+
+</html>

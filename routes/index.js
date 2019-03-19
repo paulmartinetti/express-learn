@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+let user = null
+
 const profilesA = [
     { name: "Steve", city: "Brooklyn", profession: 'doctor' },
     { name: "Alex", city: "New York" },
@@ -9,19 +11,43 @@ const profilesA = [
 
 // two params: route (home is '/'),
 router.get('/', (req, res, next) => {
+
+    // get timestamp from middlware in root index.js
+    //console.log('Timestamp: '+req.timestamp)
     // req is request from browser
     
     // res is how the server will respond
     //res.send('This is the home route response')
     const data = {
         name: 'homey', 
-        date: 'yesterday',
-        profiles: profilesA
+        date: req.timestamp,
+        profiles: profilesA,
+        user: user
     }
     
     // data is injected into the rendering engine hjs /views
     res.render('index', data)
 })
+
+// login
+router.get('/login',(req, res, next)=>{
+    res.render('login',null)
+})
+router.post('/login', (req, res, next) => {
+    // string values
+    const username = req.body.username
+    const password = req.body.password
+
+    if(password === '123'){
+        // string converted to obj
+        user = {username: username}
+        res.redirect('/')
+        return
+    }
+
+    res.json({data: 'failed login'})
+})
+
 
 // form is in index.hjs
 router.post('/join', (req, res, next) => {
@@ -33,7 +59,7 @@ router.post('/join', (req, res, next) => {
 })
 
 router.get('/json', (req, res, next) => {
-    const data = {name: 'Bill', location: 'Texas'}
+    const data = {name: 'Bill', location: 'Texas', date: req.timestamp}
     res.json(data)
 })
 

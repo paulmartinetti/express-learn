@@ -5,12 +5,21 @@ const path = require('path')
 const bodyParser = require('body-parser')
 
 const app = express()
+
+/* * * * * * * * *middleware * * * * * * * *  */
 // public assets
 // specifying the public assets here, 
 // so no need to use word public in our index.hjs
 app.use(express.static(path.join(__dirname, 'public')))
 // extract form data from a POST request
 app.use(bodyParser.urlencoded({extended:false}))
+
+// manual middleware - runs before every request is handled
+app.use((req, res, next)=>{
+    //console.log('First middleware!')
+    req.timestamp = new Date().toDateString()
+    next()
+})
 
 // routes
 app.use('/', routes)
