@@ -44,8 +44,11 @@ router.post('/login', (req, res, next) => {
         res.redirect('/')
         return
     }
+    const data = {
+        message: 'Please check your username / password'
+    }
 
-    res.json({data: 'failed login'})
+    res.render('error',data)
 })
 
 
